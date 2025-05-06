@@ -47,12 +47,12 @@ const Index = () => {
                 <CardDescription>Different button styles for different purposes</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-4 gap-6">
+                <div className="grid grid-cols-3 gap-6">
                   <div className="flex flex-col gap-4">
                     <h3 className="font-medium text-sm">Default</h3>
                     <Button>Button</Button>
-                    <Button variant="outline">Button</Button>
-                    <Button variant="ghost">Button</Button>
+                    <Button className="bg-opacity-80">Button</Button>
+                    <Button className="bg-opacity-60">Button</Button>
                     <Button isDisabled>Button</Button>
                   </div>
                   
@@ -62,14 +62,6 @@ const Index = () => {
                     <Button variant="primary" className="bg-opacity-80">Button</Button>
                     <Button variant="primary" className="bg-opacity-60">Button</Button>
                     <Button variant="primary" isDisabled>Button</Button>
-                  </div>
-                  
-                  <div className="flex flex-col gap-4">
-                    <h3 className="font-medium text-sm">Secondary</h3>
-                    <Button>Button</Button>
-                    <Button className="bg-opacity-80">Button</Button>
-                    <Button className="bg-opacity-60">Button</Button>
-                    <Button isDisabled>Button</Button>
                   </div>
                   
                   <div className="flex flex-col gap-4">
@@ -92,7 +84,7 @@ const Index = () => {
                 <CardDescription>Different button states based on interaction</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-4 gap-6">
+                <div className="grid grid-cols-3 gap-6">
                   <div className="flex flex-col gap-4">
                     <h3 className="font-medium text-sm">Default</h3>
                     <Button>Default</Button>
@@ -112,21 +104,12 @@ const Index = () => {
                   </div>
                   
                   <div className="flex flex-col gap-4">
-                    <h3 className="font-medium text-sm">Outline</h3>
-                    <Button variant="outline">Default</Button>
-                    <Button variant="outline" className="ring-2 ring-blue-500">Focus</Button>
-                    <Button variant="outline" className="hover:bg-gray-100">Hover</Button>
-                    <Button variant="outline" className="active:bg-gray-200">Active</Button>
-                    <Button variant="outline" isDisabled>Disabled</Button>
-                  </div>
-                  
-                  <div className="flex flex-col gap-4">
-                    <h3 className="font-medium text-sm">Danger</h3>
-                    <Button variant="danger">Default</Button>
-                    <Button variant="danger" className="ring-2 ring-red-300">Focus</Button>
-                    <Button variant="danger" className="hover:bg-red-700">Hover</Button>
-                    <Button variant="danger" className="active:bg-red-800">Active</Button>
-                    <Button variant="danger" isDisabled>Disabled</Button>
+                    <h3 className="font-medium text-sm">Ghost</h3>
+                    <Button variant="ghost">Default</Button>
+                    <Button variant="ghost" className="ring-2 ring-blue-500">Focus</Button>
+                    <Button variant="ghost" className="hover:bg-gray-100">Hover</Button>
+                    <Button variant="ghost" className="active:bg-gray-200">Active</Button>
+                    <Button variant="ghost" isDisabled>Disabled</Button>
                   </div>
                 </div>
               </CardContent>
@@ -159,9 +142,9 @@ const Index = () => {
                   <Separator />
                   
                   <div className="flex flex-wrap items-end gap-4">
-                    <Button variant="outline" size="lg">Large</Button>
-                    <Button variant="outline">Default</Button>
-                    <Button variant="outline" size="sm">Small</Button>
+                    <Button variant="ghost" size="lg">Large</Button>
+                    <Button variant="ghost">Default</Button>
+                    <Button variant="ghost" size="sm">Small</Button>
                   </div>
                   
                   <Separator />
@@ -194,8 +177,8 @@ const Index = () => {
                     </div>
                     
                     <div className="grid grid-cols-2 gap-4">
-                      <Button variant="outline" leftIcon={<IconPlaceholder />}>Outline</Button>
-                      <Button variant="danger" leftIcon={<IconPlaceholder />}>Danger</Button>
+                      <Button variant="ghost" leftIcon={<IconPlaceholder />}>Ghost</Button>
+                      <Button variant="danger">Danger (No Icon)</Button>
                     </div>
                     
                     <div className="grid grid-cols-2 gap-4">
@@ -217,11 +200,11 @@ const Index = () => {
                     </div>
                     
                     <div className="grid grid-cols-2 gap-4">
-                      <Button variant="outline" size="icon" aria-label="Add item">
+                      <Button variant="ghost" size="icon" aria-label="Add item">
                         <IconPlaceholder />
                       </Button>
                       <Button variant="danger" size="icon" aria-label="Add item">
-                        <IconPlaceholder />
+                        Danger
                       </Button>
                     </div>
                     
@@ -257,8 +240,8 @@ const Index = () => {
                     </div>
                     
                     <div className="grid grid-cols-2 gap-4">
-                      <Button variant="outline" isDropdown>Button</Button>
-                      <Button variant="danger" isDropdown>Button</Button>
+                      <Button variant="ghost" isDropdown>Button</Button>
+                      <Button variant="danger">Danger (No Dropdown)</Button>
                     </div>
                     
                     <div className="grid grid-cols-2 gap-4">
@@ -276,8 +259,8 @@ const Index = () => {
                     </div>
                     
                     <div className="grid grid-cols-2 gap-4">
-                      <Button variant="outline" leftIcon={<IconPlaceholder />} isDropdown>Button</Button>
-                      <Button variant="danger" leftIcon={<IconPlaceholder />} isDropdown>Button</Button>
+                      <Button variant="ghost" leftIcon={<IconPlaceholder />} isDropdown>Button</Button>
+                      <Button variant="danger">Danger (No Icon/Dropdown)</Button>
                     </div>
                     
                     <div className="grid grid-cols-2 gap-4">
@@ -301,14 +284,12 @@ const Index = () => {
                 <Button>Default</Button>
                 <Button variant="primary">Primary</Button>
                 <Button variant="danger">Danger</Button>
-                <Button variant="outline">Outline</Button>
                 <Button variant="ghost">Ghost</Button>
               </div>
               <div className="flex flex-wrap gap-3">
                 <Button isDisabled>Default</Button>
                 <Button variant="primary" isDisabled>Primary</Button>
                 <Button variant="danger" isDisabled>Danger</Button>
-                <Button variant="outline" isDisabled>Outline</Button>
                 <Button variant="ghost" isDisabled>Ghost</Button>
               </div>
             </div>
@@ -318,14 +299,11 @@ const Index = () => {
               <div className="flex flex-wrap gap-3">
                 <Button leftIcon={<IconPlaceholder />}>Default</Button>
                 <Button variant="primary" leftIcon={<IconPlaceholder />}>Primary</Button>
-                <Button variant="danger" leftIcon={<IconPlaceholder />}>Danger</Button>
+                <Button variant="danger">Danger (No Icon)</Button>
                 <Button size="icon">
                   <IconPlaceholder />
                 </Button>
                 <Button variant="primary" size="icon">
-                  <IconPlaceholder />
-                </Button>
-                <Button variant="danger" size="icon">
                   <IconPlaceholder />
                 </Button>
               </div>
@@ -336,7 +314,7 @@ const Index = () => {
               <div className="flex flex-wrap gap-3">
                 <Button isDropdown>Default</Button>
                 <Button variant="primary" isDropdown>Primary</Button>
-                <Button variant="danger" isDropdown>Danger</Button>
+                <Button variant="danger">Danger (No Dropdown)</Button>
                 <Button leftIcon={<IconPlaceholder />} isDropdown>With Icon</Button>
               </div>
             </div>

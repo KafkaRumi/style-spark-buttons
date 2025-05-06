@@ -12,7 +12,6 @@ const buttonVariants = cva(
         default: "bg-gray-200 text-gray-900 hover:bg-gray-300",
         primary: "bg-blue-600 text-white hover:bg-blue-700",
         danger: "bg-red-600 text-white hover:bg-red-700",
-        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
         ghost: "hover:bg-accent hover:text-accent-foreground",
       },
       size: {
@@ -29,7 +28,7 @@ const buttonVariants = cva(
         true: "gap-1",
       },
       isDisabled: {
-        true: "opacity-50 cursor-not-allowed",
+        true: "opacity-50 cursor-not-allowed bg-gray-200 text-gray-900 hover:bg-gray-200",
       },
     },
     defaultVariants: {
@@ -64,10 +63,16 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref
   ) => {
-    const dropdownIcon = isDropdown ? <ChevronDown className="h-4 w-4" /> : null;
+    // Don't show dropdown or icons for danger buttons
+    const isDanger = variant === "danger";
+    const finalLeftIcon = isDanger ? null : leftIcon;
+    const finalRightIcon = isDanger ? null : rightIcon;
+    const finalIsDropdown = isDanger ? false : isDropdown;
+
+    const dropdownIcon = finalIsDropdown ? <ChevronDown className="h-4 w-4" /> : null;
 
     // If button has any icon, set withIcon to true for proper spacing
-    const hasIcon = !!(leftIcon || rightIcon || isDropdown);
+    const hasIcon = !!(finalLeftIcon || finalRightIcon || finalIsDropdown);
 
     return (
       <button
@@ -76,7 +81,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             variant,
             size,
             withIcon: hasIcon,
-            isDropdown,
+            isDropdown: finalIsDropdown,
             isDisabled,
           }),
           className
@@ -85,10 +90,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={isDisabled || props.disabled}
         {...props}
       >
-        {leftIcon && leftIcon}
+        {finalLeftIcon && finalLeftIcon}
         {children}
-        {rightIcon && rightIcon}
-        {isDropdown && dropdownIcon}
+        {finalRightIcon && finalRightIcon}
+        {finalIsDropdown && dropdownIcon}
       </button>
     );
   }
